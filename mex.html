@@ -52,6 +52,35 @@
     .download-btn:hover {
       background-color: #0056b3;
     }
+    /* Search button styles */
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .search-input {
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      width: 60%;
+      max-width: 300px;
+      transition: box-shadow 0.3s ease;
+    }
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .search-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 20px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .search-btn:hover {
+      background-color: #0056b3;
+    }
     @media screen and (max-width: 600px) {
       .container {
         max-width: 90%;
@@ -66,6 +95,12 @@
     <p>This website is dedicated to watching movies and series. Stay tuned for upcoming releases!</p>
     <p>You can <a href="https://www.example.com">click here</a> for more information.</p>
     <a href="/assets/files/mex.exe" download class="download-btn">Download File</a>
+    
+    <!-- Search button -->
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search...">
+      <button type="button" class="search-btn">Search</button>
+    </div>
   </div>
 </body>
 </html>
