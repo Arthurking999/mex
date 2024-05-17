@@ -52,34 +52,15 @@
     .download-btn:hover {
       background-color: #0056b3;
     }
-    /* Search button styles */
-    .search-container {
+    .video-container {
       text-align: center;
       margin-top: 30px;
     }
-    .search-input {
-      padding: 10px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      width: 60%;
-      max-width: 300px;
-      transition: box-shadow 0.3s ease;
-    }
-    .search-input:focus {
-      outline: none;
+    video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .search-btn {
-      padding: 10px 20px;
-      background-color: #007bff;
-      border: none;
-      border-radius: 20px;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .search-btn:hover {
-      background-color: #0056b3;
     }
     @media screen and (max-width: 600px) {
       .container {
@@ -96,10 +77,15 @@
     <p>You can <a href="https://www.example.com">click here</a> for more information.</p>
     <a href="/assets/files/mex.exe" download class="download-btn">Download File</a>
     
-    <!-- Search button -->
-    <div class="search-container">
-      <input type="text" class="search-input" placeholder="Search...">
-      <button type="button" class="search-btn">Search</button>
+    <!-- Video section -->
+    <div class="video-container">
+      <h2>Latest Trailer</h2>
+      <video controls>
+        <source src="" type="videos/movie/Comp 1 (1).mp4">
+        <source src="/assets/videos/latest-trailer.webm" type="video/webm">
+        <!-- Include additional <source> elements for other formats if necessary -->
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </body>
