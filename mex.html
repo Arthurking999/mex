@@ -35,6 +35,23 @@
     a:hover {
       text-decoration: underline;
     }
+    .download-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
     @media screen and (max-width: 600px) {
       .container {
         max-width: 90%;
@@ -48,20 +65,7 @@
     <h1>Welcome To Mex Movies and Series</h1>
     <p>This website is dedicated to watching movies and series. Stay tuned for upcoming releases!</p>
     <p>You can <a href="https://www.example.com">click here</a> for more information.</p>
+    <a href="/assets/files/mex.exe" download class="download-btn">Download File</a>
   </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Button</title>
-</head>
-<body>
-    <!-- Button to download the file -->
-    <a href="/assets/files/mex.exe" download>
-        <button type="button">Download File</button>
-    </a>
 </body>
 </html>
