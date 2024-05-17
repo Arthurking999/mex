@@ -9,13 +9,14 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
+      background-color: #39165b; /* Updated background color */
+      backdrop-filter: blur(8px); /* Added blur effect */
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for container */
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -81,8 +82,7 @@
     <div class="video-container">
       <h2>Latest Trailer</h2>
       <video controls>
-        <source src="" type="videos/movie/edit.mp4">
-        <source src="/assets/videos/latest-trailer.webm" type="video/webm">
+        <source src="/assets/videos/movie/edit.mp4" type="video/mp4">
         <!-- Include additional <source> elements for other formats if necessary -->
         Your browser does not support the video tag.
       </video>
@@ -90,19 +90,3 @@
   </div>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Upload</title>
-</head>
-<body>
-  <h1>Upload Video</h1>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="videoFile" accept="video/*">
-    <button type="submit">Upload</button>
-  </form>
-</body>
-</html>
-
