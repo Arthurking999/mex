@@ -9,14 +9,17 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #39165b; /* Updated background color */
-      backdrop-filter: blur(8px); /* Added blur effect */
+      background-color: #39165b;
+      /* Semi-transparent overlay to create a blur-like effect */
+      background: linear-gradient(rgba(57, 22, 91, 0.8), rgba(57, 22, 91, 0.8)), url('background.jpg');
+      background-size: cover;
+      background-position: center;
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for container */
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -63,16 +66,25 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    @media screen and (max-width: 600px) {
-      .container {
-        max-width: 90%;
-        padding: 10px;
-      }
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .logo-container img {
+      height: 40px;
+      width: auto;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Home and Discord logos -->
+    <div class="logo-container">
+      <a href="index.html"><img src="https://via.placeholder.com/50" alt="Home"></a>
+      <a href="https://discord.gg/2EGUCxkQFq"><img src="https://via.placeholder.com/50" alt="Discord"></a>
+    </div>
     <h1>Welcome To Mex Movies and Series</h1>
     <p>This website is dedicated to watching movies and series. Stay tuned for upcoming releases!</p>
     <p>You can <a href="https://www.example.com">click here</a> for more information.</p>
@@ -83,7 +95,6 @@
       <h2>Latest Trailer</h2>
       <video controls>
         <source src="/assets/videos/movie/edit.mp4" type="video/mp4">
-        <!-- Include additional <source> elements for other formats if necessary -->
         Your browser does not support the video tag.
       </video>
     </div>
