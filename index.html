@@ -93,17 +93,23 @@
     .music-player {
       text-align: center;
       margin-top: 20px;
-    }
-    .music-player iframe {
-      border: 0;
-      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .music-player img {
+      width: 100px;
       margin-bottom: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
     .music-player .controls {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 10px;
     }
     .music-player .controls button {
       background-color: #007bff;
@@ -169,6 +175,7 @@
     <!-- Music Player -->
     <div class="music-player">
       <h2>Listen to Our Latest Track</h2>
+      <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Music">
       <div id="youtube-player"></div>
       <div class="controls">
         <button id="play-btn">Play</button>
@@ -182,5 +189,11 @@
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
     </div>
   </div>
+  <script>
+    function toggleAboutUs() {
+      const aboutUsSection = document.getElementById('about-us-section');
+      aboutUsSection.classList.toggle('visible');
+    }
+  </script>
 </body>
 </html>
