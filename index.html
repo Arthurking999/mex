@@ -16,9 +16,9 @@
       backdrop-filter: blur(10px);
       color: #fff;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
     }
     .container {
       max-width: 800px;
@@ -98,23 +98,27 @@
     .music-player .controls input[type="range"] {
       width: 200px;
     }
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      margin-top: auto;
-    }
-    .logo-container img {
-      width: 80px;
-      height: 80px;
-      margin: 0 10px;
-      border-radius: 50%;
-      filter: brightness(110%) saturate(120%);
-      transition: transform 0.3s;
-    }
-    .logo-container img:hover {
-      transform: scale(1.1);
-    }
   </style>
+  <script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        height: '0',
+        width: '0',
+        videoId: 'cZCm_i6YvAk',
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      document.getElementById('play-btn').addEventListener('click', () => player.playVideo());
+      document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
+      document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
+    }
+  </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
   <div class="container">
@@ -137,15 +141,6 @@
 
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
-    </div>
-
-    <div class="logo-container">
-      <a href="https://www.tiktok.com/@kwer79" target="_blank">
-        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0wOC5wbmc.png" alt="TikTok">
-      </a>
-      <a href="https://open.spotify.com/user/3137l27fi6pi6gzoewh25jr7i47m" target="_blank">
-        <img src="https://static.vecteezy.com/system/resources/previews/023/986/728/original/spotify-logo-spotify-logo-transparent-spotify-icon-transparent-free-free-png.png" alt="Spotify">
-      </a>
     </div>
   </div>
   <script>
