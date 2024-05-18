@@ -29,15 +29,11 @@
       backdrop-filter: blur(20px);
       text-align: center;
     }
-    h1, h2 {
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      margin-top: 0;
-    }
-    p, a, .credits p {
-      color: #ddd;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      line-height: 1.6;
+    h1, h2, p, a, .credits p, .download-btn, .about-us-btn, .clock, .music-player h2 {
+      color: #00bfff;
+      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+      letter-spacing: 1px;
+      animation: glow 1.5s infinite alternate;
     }
     a {
       color: #00bfff;
@@ -51,15 +47,15 @@
       padding: 10px 20px;
       margin-top: 20px;
       font-size: 16px;
-      color: #fff;
       background-color: #007bff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
     .download-btn:hover, .about-us-btn:hover {
       background-color: #0056b3;
+      box-shadow: 0 0 10px #007bff;
     }
     .music-player {
       text-align: center;
@@ -90,10 +86,11 @@
       margin: 0 10px;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
     .music-player .controls button:hover {
       background-color: #0056b3;
+      box-shadow: 0 0 10px #007bff;
     }
     .music-player .controls input[type="range"] {
       width: 200px;
@@ -120,18 +117,14 @@
     .clock {
       font-size: 2.5em;
       margin-top: 20px;
-      color: #00bfff;
-      text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff, 0 0 50px #00bfff, 0 0 60px #00bfff;
-      letter-spacing: 2px;
-      animation: glow 1.5s infinite alternate;
     }
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff, 0 0 50px #00bfff, 0 0 60px #00bfff, 0 0 70px #00bfff;
+        text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
       }
       to {
-        text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff, 0 0 50px #00bfff, 0 0 60px #00bfff, 0 0 70px #00bfff, 0 0 80px #00bfff;
+        text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff;
       }
     }
   </style>
