@@ -4,8 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mex STUDIOS!!</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="music-player.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #39165b;
+      background: linear-gradient(rgba(57, 22, 91, 0.8), rgba(57, 22, 91, 0.8)), url('https://images3.alphacoders.com/729/thumb-1920-729731.jpg');
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(10px);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      text-align: center;
+    }
+    h1, h2 {
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      margin-top: 0;
+    }
+    p, a, .credits p {
+      color: #ddd;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      line-height: 1.6;
+    }
+    a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .download-btn, .about-us-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover, .about-us-btn:hover {
+      background-color: #0056b3;
+    }
+    .music-player {
+      text-align: center;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .music-player img {
+      width: 100px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .music-player .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .music-player .controls button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .music-player .controls button:hover {
+      background-color: #0056b3;
+    }
+    .music-player .controls input[type="range"] {
+      width: 200px;
+    }
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-links a {
+      display: inline-block;
+    }
+    .social-links img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .social-links img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+  </style>
   <script>
     let player;
     function onYouTubeIframeAPIReady() {
@@ -20,20 +132,14 @@
     }
 
     function onPlayerReady(event) {
-      document.getElementById('play-btn').addEventListener('click', () => {
-        player.playVideo();
-        document.getElementById('status').textContent = 'Playing';
-      });
-      document.getElementById('pause-btn').addEventListener('click', () => {
-        player.pauseVideo();
-        document.getElementById('status').textContent = 'Paused';
-      });
+      document.getElementById('play-btn').addEventListener('click', () => player.playVideo());
+      document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
-      document.getElementById('progress-bar').addEventListener('input', (e) => player.seekTo(e.target.value));
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       const apiEndpoint = 'https://api.countapi.xyz/hit/mexstudios/mexstudiosvisits';
+      
       fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
@@ -53,32 +159,14 @@
     <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
 
     <div class="music-player">
-      <header>
-        <button class="back-btn">Back</button>
-        <h2 class="song-title">Playing For the First Time</h2>
-        <p class="artist-name">Mac DeMarco</p>
-        <button class="menu-btn">Menu</button>
-      </header>
-      <div class="album-art">
-        <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Album Cover">
-      </div>
+      <h2>Playing For the First Time · Mac DeMarco </h2>
+      <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Music">
+      <div id="youtube-player"></div>
       <div class="controls">
-        <button class="shuffle-btn">Shuffle</button>
-        <button class="prev-btn">Prev</button>
-        <button class="play-btn" id="play-btn">Play</button>
-        <button class="pause-btn" id="pause-btn">Pause</button>
-        <button class="next-btn">Next</button>
-        <button class="repeat-btn">Repeat</button>
+        <button id="play-btn">Play</button>
+        <button id="pause-btn">Pause</button>
+        <input type="range" id="volume-control" min="0" max="100" step="1">
       </div>
-      <div class="progress-bar">
-        <span class="current-time">0:00</span>
-        <input type="range" id="progress-bar" value="0" min="0" max="100">
-        <span class="total-time">3:30</span>
-      </div>
-      <div class="volume-control">
-        <input type="range" id="volume-control" min="0" max="100">
-      </div>
-      <div id="status" class="status">Paused</div>
     </div>
 
     <div class="social-links">
@@ -92,8 +180,9 @@
 
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
+    
+    <div class="credits">
       <p>MADE IN KSA USING HTML (:</p>
-    </div>
-  </div>
+    </script>
 </body>
 </html>
