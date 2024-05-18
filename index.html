@@ -4,141 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mex STUDIOS!!</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url('https://images3.alphacoders.com/729/thumb-1920-729731.jpg');
-      background-size: cover;
-      background-position: center;
-      backdrop-filter: blur(10px);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      max-width: 800px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-      text-align: center;
-    }
-    h1, h2 {
-      color: #1DB954;
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-    p, a, .credits p {
-      color: #b3b3b3;
-      line-height: 1.6;
-    }
-    a {
-      color: #1DB954;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #1DB954;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #17a74a;
-    }
-    .music-player {
-      text-align: center;
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    .music-player img {
-      width: 150px;
-      margin-bottom: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    .music-player .controls {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .music-player .controls button {
-      background-color: #1DB954;
-      color: white;
-      border: none;
-      padding: 10px 30px;
-      margin: 10px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .music-player .controls button:hover {
-      background-color: #17a74a;
-    }
-    .music-player .controls input[type="range"] {
-      width: 80%;
-      margin: 10px 0;
-      appearance: none;
-      background: #404040;
-      height: 5px;
-      border-radius: 5px;
-      outline: none;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    .music-player .controls input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #1DB954;
-      cursor: pointer;
-    }
-    .music-player .controls input[type="range"]:hover {
-      opacity: 1;
-    }
-    .music-player .status {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #1DB954;
-    }
-    .social-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .social-links a {
-      display: inline-block;
-    }
-    .social-links img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .social-links img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="music-player.css">
   <script>
     let player;
     function onYouTubeIframeAPIReady() {
@@ -147,40 +14,26 @@
         width: '0',
         videoId: 'cZCm_i6YvAk',
         events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
+          'onReady': onPlayerReady
         }
       });
     }
 
     function onPlayerReady(event) {
-      document.getElementById('play-btn').addEventListener('click', () => player.playVideo());
-      document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
+      document.getElementById('play-btn').addEventListener('click', () => {
+        player.playVideo();
+        document.getElementById('status').textContent = 'Playing';
+      });
+      document.getElementById('pause-btn').addEventListener('click', () => {
+        player.pauseVideo();
+        document.getElementById('status').textContent = 'Paused';
+      });
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
-      document.getElementById('time-control').addEventListener('input', (e) => player.seekTo(e.target.value));
-      setInterval(updateTimeControl, 1000);
-    }
-
-    function onPlayerStateChange(event) {
-      const status = document.getElementById('status');
-      if (event.data == YT.PlayerState.PLAYING) {
-        status.textContent = 'Playing';
-      } else {
-        status.textContent = '';
-      }
-    }
-
-    function updateTimeControl() {
-      const timeControl = document.getElementById('time-control');
-      if (player && player.getCurrentTime) {
-        timeControl.value = player.getCurrentTime();
-        timeControl.max = player.getDuration();
-      }
+      document.getElementById('progress-bar').addEventListener('input', (e) => player.seekTo(e.target.value));
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       const apiEndpoint = 'https://api.countapi.xyz/hit/mexstudios/mexstudiosvisits';
-      
       fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
@@ -196,20 +49,36 @@
     <h1>Welcome To The Official Website OF MEX STUDIOS!</h1>
     <p>This website is dedicated to releasing any project of MEX STUDIOS!</p>
     <p>You can <a href="https://meex.netlify.app/">click here</a> to restart the website.</p>
-    <a href="/assets/files/mex.exe" download class="btn">Download MEX YT DOWNLOADER (BETA)</a>
-    <button class="btn" onclick="toggleAboutUs()">About Us</button>
+    <a href="/assets/files/mex.exe" download class="download-btn">Download MEX YT DOWNLOADER (BETA)</a>
+    <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
 
     <div class="music-player">
-      <h2>Playing For the First Time · Mac DeMarco </h2>
-      <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Music">
-      <div id="youtube-player"></div>
-      <div class="controls">
-        <button id="play-btn">Play</button>
-        <button id="pause-btn">Pause</button>
-        <input type="range" id="volume-control" min="0" max="100" step="1">
-        <input type="range" id="time-control" min="0" max="100" step="1">
+      <header>
+        <button class="back-btn">Back</button>
+        <h2 class="song-title">Playing For the First Time</h2>
+        <p class="artist-name">Mac DeMarco</p>
+        <button class="menu-btn">Menu</button>
+      </header>
+      <div class="album-art">
+        <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Album Cover">
       </div>
-      <div id="status" class="status"></div>
+      <div class="controls">
+        <button class="shuffle-btn">Shuffle</button>
+        <button class="prev-btn">Prev</button>
+        <button class="play-btn" id="play-btn">Play</button>
+        <button class="pause-btn" id="pause-btn">Pause</button>
+        <button class="next-btn">Next</button>
+        <button class="repeat-btn">Repeat</button>
+      </div>
+      <div class="progress-bar">
+        <span class="current-time">0:00</span>
+        <input type="range" id="progress-bar" value="0" min="0" max="100">
+        <span class="total-time">3:30</span>
+      </div>
+      <div class="volume-control">
+        <input type="range" id="volume-control" min="0" max="100">
+      </div>
+      <div id="status" class="status">Paused</div>
     </div>
 
     <div class="social-links">
