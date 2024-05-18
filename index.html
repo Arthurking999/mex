@@ -78,8 +78,11 @@
     }
     .music-player .controls {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      margin-top: 10px;
+    }
+    .music-player .controls button, .music-player .controls input[type="range"] {
       margin-top: 10px;
     }
     .music-player .controls button {
@@ -87,7 +90,6 @@
       color: white;
       border: none;
       padding: 10px 20px;
-      margin: 0 10px;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
@@ -96,7 +98,13 @@
       background-color: #0056b3;
     }
     .music-player .controls input[type="range"] {
-      width: 200px;
+      width: 300px;
+      margin: 10px 0;
+    }
+    .music-player .status {
+      margin-top: 10px;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
     .social-links {
       margin-top: 20px;
@@ -126,7 +134,8 @@
         width: '0',
         videoId: 'cZCm_i6YvAk',
         events: {
-          'onReady': onPlayerReady
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
         }
       });
     }
@@ -135,6 +144,25 @@
       document.getElementById('play-btn').addEventListener('click', () => player.playVideo());
       document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
+      document.getElementById('time-control').addEventListener('input', (e) => player.seekTo(e.target.value));
+      setInterval(updateTimeControl, 1000);
+    }
+
+    function onPlayerStateChange(event) {
+      const status = document.getElementById('status');
+      if (event.data == YT.PlayerState.PLAYING) {
+        status.textContent = 'Playing';
+      } else {
+        status.textContent = '';
+      }
+    }
+
+    function updateTimeControl() {
+      const timeControl = document.getElementById('time-control');
+      if (player && player.getCurrentTime) {
+        timeControl.value = player.getCurrentTime();
+        timeControl.max = player.getDuration();
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -166,7 +194,9 @@
         <button id="play-btn">Play</button>
         <button id="pause-btn">Pause</button>
         <input type="range" id="volume-control" min="0" max="100" step="1">
+        <input type="range" id="time-control" min="0" max="100" step="1">
       </div>
+      <div id="status" class="status"></div>
     </div>
 
     <div class="social-links">
@@ -180,9 +210,8 @@
 
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
-    
-    <div class="credits">
       <p>MADE IN KSA USING HTML (:</p>
-    </script>
+    </div>
+  </div>
 </body>
 </html>
