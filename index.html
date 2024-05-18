@@ -98,6 +98,25 @@
     .music-player .controls input[type="range"] {
       width: 200px;
     }
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-links a {
+      display: inline-block;
+    }
+    .social-links img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .social-links img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
   </style>
   <script>
     let player;
@@ -138,12 +157,15 @@
         <input type="range" id="volume-control" min="0" max="100" step="1">
       </div>
     </div>
-    <div class="logo-container">
+
+    <div class="social-links">
       <a href="https://www.tiktok.com/@kwer79" target="_blank">
-        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0wOC5wbmc.png" alt="TikTok">
+        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0wOC5wbmc.png" alt="TikTok Logo">
       </a>
       <a href="https://open.spotify.com/user/3137l27fi6pi6gzoewh25jr7i47m" target="_blank">
-        <img src="https://static.vecteezy.com/system/resources/previews/023/986/728/original/spotify-logo-spotify-logo-transparent-spotify-icon-transparent-free-free-png.png" alt="Spotify">
+        <img src="https://static.vecteezy.com/system/resources/previews/023/986/728/original/spotify-logo-spotify-logo-transparent-spotify-icon-transparent-free-free-png.png" alt="Spotify Logo">
+      </a>
+    </div>
 
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
