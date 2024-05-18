@@ -136,6 +136,17 @@
       document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const apiEndpoint = 'https://api.countapi.xyz/hit/mexstudios/mexstudiosvisits';
+      
+      fetch(apiEndpoint)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('visit-count').textContent = data.value;
+        })
+        .catch(error => console.error('Error:', error));
+    });
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
@@ -170,6 +181,7 @@
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
     </div>
+    <p>Number of visits: <span id="visit-count">0</span></p>
   </div>
   <script>
     function toggleAboutUs() {
