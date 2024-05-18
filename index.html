@@ -13,29 +13,34 @@
       background: linear-gradient(rgba(57, 22, 91, 0.8), rgba(57, 22, 91, 0.8)), url('https://images.alphacoders.com/132/thumbbig-1328866.webp');
       background-size: cover;
       background-position: center;
-      -webkit-backdrop-filter: blur(10px); /* Safari */
-      backdrop-filter: blur(10px); /* Blur effect */
+      backdrop-filter: blur(10px);
       color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     .container {
       max-width: 800px;
-      margin: 20px auto;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      text-align: center;
     }
     h1, h2 {
-      color: #333;
-      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       margin-top: 0;
     }
-    p {
-      color: #666;
+    p, a, .credits p {
+      color: #ddd;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       line-height: 1.6;
     }
     a {
-      color: #007bff;
+      color: #00bfff;
       text-decoration: none;
     }
     a:hover {
@@ -50,54 +55,20 @@
       background-color: #007bff;
       border: none;
       border-radius: 4px;
-      text-align: center;
-      text-decoration: none;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     .download-btn:hover, .about-us-btn:hover {
       background-color: #0056b3;
     }
-    .video-container {
-      text-align: center;
-      margin-top: 30px;
-    }
-    video {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .logo-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .logo-container img {
-      height: 40px;
-      width: auto;
-    }
-    .credits {
-      text-align: center;
-      margin-top: 20px;
-      color: #333;
-    }
-    .about-us {
-      display: none;
-      margin-top: 20px;
-    }
-    .about-us.visible {
-      display: block;
-    }
     .music-player {
       text-align: center;
       margin-top: 20px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
     .music-player img {
       width: 100px;
@@ -142,7 +113,6 @@
     }
 
     function onPlayerReady(event) {
-      // Event handlers for play, pause, and volume control
       document.getElementById('play-btn').addEventListener('click', () => player.playVideo());
       document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
@@ -152,29 +122,14 @@
 </head>
 <body>
   <div class="container">
-    <!-- Home and Discord logos -->
-    <div class="logo-container">
-      <a href="index.html"><img src="https://e7.pngegg.com/pngimages/703/597/png-clipart-logo-house-home-house-angle-building.png" alt="Home"></a>
-      <a href="https://discord.gg/2EGUCxkQFq"><img src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png" alt="Discord"></a>
-    </div>
     <h1>Welcome To The Official Website OF MEX STUDIOS!</h1>
     <p>This website is dedicated to releasing any project of MEX STUDIOS!</p>
     <p>You can <a href="https://meex.netlify.app/">click here</a> to restart the website.</p>
     <a href="/assets/files/mex.exe" download class="download-btn">Download MEX YT DOWNLOADER (BETA)</a>
     <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
 
-    <!-- About Us section -->
-    <div id="about-us-section" class="about-us">
-      <h2>About Mex Studio</h2>
-      <p>Mex Studio started in 2023 with the mission to create innovative tools for games and websites. Our team is dedicated to providing high-quality solutions that enhance user experience and offer unique functionalities. From game development tools to website utilities, we are committed to pushing the boundaries of what is possible and delivering exceptional products to our users. Thank you for supporting us, and we look forward to continuing to bring you exciting and useful tools!</p>
-      <p>Our journey began with a small team of passionate developers who wanted to make a difference in the gaming and web development community. Over the years, we have grown and evolved, constantly striving to improve and innovate. Whether you are a gamer looking for the latest tools or a web developer seeking efficient solutions, Mex Studio has something to offer. Join us as we continue to explore new horizons and make a positive impact in the industry.</p>
-      <p>Our team is composed of experts in various fields, including software development, game design, and user experience. This diverse expertise allows us to approach projects from different angles and create well-rounded, effective tools. We believe in the power of collaboration and are always open to feedback and suggestions from our community. Together, we can achieve great things and create tools that make a real difference.</p>
-      <p>At Mex Studio, we are not just about creating tools; we are about building a community. We value the relationships we have with our users and are committed to fostering a supportive and engaging environment. Whether you are a long-time user or new to our products, we are here to assist you and ensure you have the best experience possible. Thank you for being a part of the Mex Studio family!</p>
-    </div>
-
-    <!-- Music Player -->
     <div class="music-player">
-      <h2>Listen to Our Latest Track</h2>
+      <h2>Playing For the First Time · Mac DeMarco </h2>
       <img src="https://i.pinimg.com/564x/93/37/cc/9337cceb0c01056ead50e5309566f5fc.jpg" alt="Music">
       <div id="youtube-player"></div>
       <div class="controls">
@@ -184,7 +139,6 @@
       </div>
     </div>
 
-    <!-- Credits -->
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
     </div>
