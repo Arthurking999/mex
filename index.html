@@ -122,7 +122,7 @@
     }
     .playing-message {
       position: absolute;
-      top: 10px;
+      top: -50px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255, 255, 255, 0.1);
@@ -134,7 +134,12 @@
       transition: all 0.5s ease-out;
     }
     .playing-message.show {
+      top: -60px;
       opacity: 1;
+    }
+    .playing-message.hide {
+      top: -10px;
+      opacity: 0;
     }
 
     @keyframes glow {
@@ -161,13 +166,22 @@
 
     function onPlayerReady(event) {
       const playButton = document.getElementById('play-btn');
+      const pauseButton = document.getElementById('pause-btn');
       const playingMessage = document.getElementById('playing-message');
+      
       playButton.addEventListener('click', () => {
         player.playVideo();
         playingMessage.textContent = 'Playing novulent - scars';
+        playingMessage.classList.remove('hide');
         playingMessage.classList.add('show');
       });
-      document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
+      
+      pauseButton.addEventListener('click', () => {
+        player.pauseVideo();
+        playingMessage.classList.remove('show');
+        playingMessage.classList.add('hide');
+      });
+
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
     }
 
