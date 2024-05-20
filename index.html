@@ -122,7 +122,7 @@
     }
     .playing-message {
       position: absolute;
-      top: -60px;
+      top: -40px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255, 255, 255, 0.1);
@@ -136,10 +136,6 @@
     .playing-message.show {
       top: -80px;
       opacity: 1;
-    }
-    .playing-message.hide {
-      top: -60px;
-      opacity: 0;
     }
 
     @keyframes glow {
@@ -172,8 +168,8 @@
       playButton.addEventListener('click', () => {
         player.playVideo();
         playingMessage.textContent = 'Playing novulent - scars';
-        playingMessage.classList.remove('hide');
         playingMessage.classList.add('show');
+        playingMessage.classList.remove('hide');
       });
       
       pauseButton.addEventListener('click', () => {
@@ -218,7 +214,7 @@
     <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
     <div class="clock" id="clock"></div>
     <div class="music-player">
-      <div id="playing-message" class="playing-message hide">Playing novulent - scars</div>
+      <div id="playing-message" class="playing-message">Playing novulent - scars</div>
       <img src="https://i.ibb.co/7Cjv4PB/Screenshot-2024-05-20-050718.png" alt="Music">
       <div id="youtube-player"></div>
       <div class="controls">
