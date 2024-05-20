@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       background-color: #39165b;
-      background: linear-gradient(rgba(0 , 0, 0, 0), rgba(57, 22, 91, 0.8)), url('https://images8.alphacoders.com/749/thumb-1920-749455.png');
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(57, 22, 91, 0.8)), url('https://images8.alphacoders.com/749/thumb-1920-749455.png');
       background-size: cover;
       background-position: center;
       backdrop-filter: blur(10px);
@@ -122,7 +122,7 @@
     }
     .playing-message {
       position: absolute;
-      top: -50px;
+      top: -60px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255, 255, 255, 0.1);
@@ -134,11 +134,11 @@
       transition: all 0.5s ease-out;
     }
     .playing-message.show {
-      top: -60px;
+      top: -80px;
       opacity: 1;
     }
     .playing-message.hide {
-      top: -10px;
+      top: -60px;
       opacity: 0;
     }
 
@@ -218,7 +218,7 @@
     <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
     <div class="clock" id="clock"></div>
     <div class="music-player">
-      <div id="playing-message" class="playing-message">Playing novulent - scars</div>
+      <div id="playing-message" class="playing-message hide">Playing novulent - scars</div>
       <img src="https://i.ibb.co/7Cjv4PB/Screenshot-2024-05-20-050718.png" alt="Music">
       <div id="youtube-player"></div>
       <div class="controls">
