@@ -137,6 +137,10 @@
       bottom: 12px;
       opacity: 1;
     }
+    .playing-message.hide {
+      bottom: -50px;
+      opacity: 0;
+    }
 
     @keyframes glow {
       from {
@@ -162,13 +166,22 @@
 
     function onPlayerReady(event) {
       const playButton = document.getElementById('play-btn');
+      const pauseButton = document.getElementById('pause-btn');
       const playingMessage = document.getElementById('playing-message');
+      
       playButton.addEventListener('click', () => {
         player.playVideo();
-        playingMessage.textContent = 'Playing novulent - scars';
+        playingMessage.textContent = 'Playing I Just Wanna Be Loved';
         playingMessage.classList.add('show');
+        playingMessage.classList.remove('hide');
       });
-      document.getElementById('pause-btn').addEventListener('click', () => player.pauseVideo());
+
+      pauseButton.addEventListener('click', () => {
+        player.pauseVideo();
+        playingMessage.classList.add('hide');
+        playingMessage.classList.remove('show');
+      });
+
       document.getElementById('volume-control').addEventListener('input', (e) => player.setVolume(e.target.value));
     }
 
