@@ -28,6 +28,8 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(20px);
       text-align: center;
+      overflow-y: auto;
+      max-height: 90vh;
     }
     h1, h2, p, a, .credits p, .download-btn, .about-us-btn, .clock, .music-player h2 {
       color: #5f0b0b;
@@ -141,14 +143,41 @@
       bottom: -50px;
       opacity: 0;
     }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
-      }
-      to {
-        text-shadow: 0 0 25px #ffffff, 0 0 30px #ffffff, 0 0 30px #ffffff;
-      }
+    .comment-section {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .comment-section h2 {
+      color: #007bff;
+    }
+    .comment-section input, .comment-section textarea, .comment-section button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .comment-section button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .comment-section button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 0 10px #007bff;
+    }
+    .comment {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
   </style>
   <script>
@@ -205,6 +234,39 @@
 
       setInterval(updateTime, 1000);
       updateTime(); // initial call to set the time immediately
+
+      // Comment Section Logic
+      const commentForm = document.getElementById('comment-form');
+      const commentInput = document.getElementById('comment-input');
+      const commentList = document.getElementById('comment-list');
+      let comments = [];
+
+      commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+          const comment = {
+            text: commentText,
+            timestamp: new Date().toLocaleString()
+          };
+          comments.push(comment);
+          commentInput.value = '';
+          renderComments();
+        }
+      });
+
+      function renderComments() {
+        commentList.innerHTML = '';
+        comments.forEach(comment => {
+          const commentElement = document.createElement('div');
+          commentElement.classList.add('comment');
+          commentElement.innerHTML = `
+            <p>${comment.text}</p>
+            <span>${comment.timestamp}</span>
+          `;
+          commentList.appendChild(commentElement);
+        });
+      }
     });
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -244,6 +306,15 @@
     <div class="credits">
       <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
       <p>MADE IN KSA USING HTML (:</p>
+    </div>
+
+    <div class="comment-section">
+      <h2>Comments</h2>
+      <form id="comment-form">
+        <textarea id="comment-input" rows="4" placeholder="Type your comment here..."></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <div id="comment-list"></div>
     </div>
   </div>
 </body>
