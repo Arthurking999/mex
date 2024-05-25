@@ -179,6 +179,31 @@
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
+    .about-us {
+      display: none;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      line-height: 1.5;
+    }
+    .about-us.show {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
   <script>
     let player;
@@ -268,6 +293,11 @@
         });
       }
     });
+
+    function toggleAboutUs() {
+      const aboutUsSection = document.querySelector('.about-us');
+      aboutUsSection.classList.toggle('show');
+    }
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
@@ -315,6 +345,15 @@
         <button type="submit">Post Comment</button>
       </form>
       <div id="comment-list"></div>
+    </div>
+
+    <div class="about-us">
+      <h2>About Us</h2>
+      <p>Mex Studios is a leading company in the entertainment industry, dedicated to creating high-quality content that captivates audiences around the world. Our mission is to deliver innovative and engaging projects that push the boundaries of creativity and technology.</p>
+      <p>Founded in the heart of Saudi Arabia, Mex Studios is committed to showcasing the rich cultural heritage and modern advancements of the region. We believe in the power of storytelling to inspire, entertain, and bring people together.</p>
+      <p>Our team consists of talented professionals from various fields, including film, music, animation, and digital media. Together, we strive to produce content that resonates with a diverse global audience.</p>
+      <p>We are proud of our achievements and look forward to many more years of entertaining and inspiring our fans. Thank you for supporting Mex Studios.</p>
+      <p>Made with ❤️ in Saudi Arabia 🇸🇦</p>
     </div>
   </div>
 </body>
