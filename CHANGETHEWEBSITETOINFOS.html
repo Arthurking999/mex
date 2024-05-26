@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mex STUDIOS!!</title>
+  <title>NAWAF ABOUT ME!!</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -31,7 +31,7 @@
       overflow-y: auto;
       max-height: 90vh;
     }
-    h1, h2, p, a, .credits p, .download-btn, .about-us-btn, .clock, .music-player h2 {
+    h1, h2, p, a, .credits p, .download-btn, .clock, .music-player h2 {
       color: #5f0b0b;
       text-shadow: 0 0 10px #630404, 0 0 20px #630404, 0 0 30px #630404;
       letter-spacing: 1px;
@@ -44,7 +44,7 @@
     a:hover {
       text-decoration: underline;
     }
-    .download-btn, .about-us-btn {
+    .download-btn {
       display: inline-block;
       padding: 10px 20px;
       margin-top: 20px;
@@ -55,7 +55,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .download-btn:hover, .about-us-btn:hover {
+    .download-btn:hover {
       background-color: #0056b3;
       box-shadow: 0 0 10px #007bff;
     }
@@ -179,31 +179,6 @@
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-    .about-us {
-      display: none;
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 12px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      text-align: left;
-      line-height: 1.5;
-    }
-    .about-us.show {
-      display: block;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
   <script>
     let player;
@@ -211,7 +186,7 @@
       player = new YT.Player('youtube-player', {
         height: '0',
         width: '0',
-        videoId: 'CkT7j0JOCx8',
+        videoId: 'ZJXM4mCDL8I',
         events: {
           'onReady': onPlayerReady
         }
@@ -225,7 +200,7 @@
       
       playButton.addEventListener('click', () => {
         player.playVideo();
-        playingMessage.textContent = 'Playing I Just Wanna Be Loved';
+        playingMessage.textContent = 'Playing I Don\'t Care - VIOLENT VIRA';
         playingMessage.classList.add('show');
         playingMessage.classList.remove('hide');
       });
@@ -240,7 +215,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const apiEndpoint = 'https://api.countapi.xyz/hit/mexstudios/mexstudiosvisits';
+      const apiEndpoint = 'https://api.countapi.xyz/hit/nawafinfo/nawafinfovisits';
       
       fetch(apiEndpoint)
         .then(response => response.json())
@@ -293,28 +268,17 @@
         });
       }
     });
-
-    function toggleAboutUs() {
-      const aboutUsSection = document.querySelector('.about-us');
-      aboutUsSection.classList.toggle('show');
-    }
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome To The Official Website OF MEX STUDIOS!</h1>
-    <p>This website is dedicated to releasing any project of MEX STUDIOS!</p>
+    <h1>NAWAF DEV!</h1>
     <p>You can <a href="https://mexstudios.github.io/mex/">click here</a> to refresh the website.</p>
     <a href="/assets/files/mex.exe" download class="download-btn">Download MEX YT DOWNLOADER (BETA), you need pillow library (python) to use it.</a>
-    <button class="about-us-btn" onclick="toggleAboutUs()">About Us</button>
-    <div class="about-us">
-      <h2>About Us</h2>
-      <p>Mex Studios is a company from Saudi Arabia dedicated to making tools for games, hacks, and more. Our mission is to provide high-quality tools that enhance the gaming experience for players around the world. We are passionate about technology and innovation, and we continuously strive to improve our products and services. At Mex Studios, we believe in the power of creativity and the impact it can have on the gaming community. Join us on our journey as we push the boundaries of what is possible in the world of gaming.</p>
-    </div>
     <div class="clock" id="clock"></div>
     <div class="music-player">
-      <h2>I Just Wanna Be Loved</h2>
+      <h2>I Don't Care - VIOLENT VIRA</h2>
       <img src="https://i.ibb.co/7Cjv4PB/Screenshot-2024-05-20-050718.png" alt="Music">
       <div id="youtube-player"></div>
       <div class="controls">
@@ -322,7 +286,7 @@
         <button id="pause-btn">Pause</button>
         <input type="range" id="volume-control" min="0" max="100" step="1">
       </div>
-      <div id="playing-message" class="playing-message">Playing I Just Wanna Be Loved</div>
+      <div id="playing-message" class="playing-message">Playing I Don't Care - VIOLENT VIRA</div>
     </div>
 
     <div class="social-links">
@@ -338,7 +302,7 @@
     </div>
 
     <div class="credits">
-      <p>Developed by MASHLE (THE OWNER OF MEX STUDIOS)</p>
+      <p>Developed by MASHLE (THE OWNER OF NAWAF INFO)</p>
       <p>MADE IN SAUDI ARABIA USING HTML (:</p>
     </div>
 
