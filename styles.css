@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -5,6 +7,12 @@ body {
     background: url('https://cdn.discordapp.com/attachments/1233881531404124202/1248335008922472531/a_077042408823fa176cbbd962aeb06f49.gif?ex=666f2793&is=666dd613&hm=5ca9b499433d8d89ad10dbcb2f7224bd4bf541acbeab97f239a5cb60afa63ecf&') no-repeat center center fixed;
     background-size: cover;
     cursor: url('https://cdn.discordapp.com/attachments/1233881524550635650/1247992452443410523/7354623.cur?ex=666f3a0b&is=666de88b&hm=be4eb15c641a4a1b6beb63e22366bb86097d69bf9794d4175574f43369e40493&'), auto;
+}
+
+.minecraft-text {
+    font-family: 'Press Start 2P', cursive;
+    color: #00ff00;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .welcome-screen {
@@ -22,9 +30,14 @@ body {
 }
 
 .welcome-screen h1 {
-    color: white;
-    font-size: 3rem;
     cursor: pointer;
+    font-size: 3rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.welcome-screen h1:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .content {
@@ -32,6 +45,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
     transition: opacity 1s, transform 1s;
 }
 
@@ -46,12 +60,37 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .image-container img {
-    width: 100%;
+    width: 300px;
     height: auto;
     border-radius: 10px;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
 }
 
 @keyframes rain {
@@ -68,9 +107,10 @@ body {
     top: 0;
     left: 0;
     width: 2px;
-    height: 100vh;
+    height: 20px;
     background: rgba(255, 255, 255, 0.5);
     animation: rain 1s infinite linear;
+    filter: blur(1px);
 }
 
 .rain:nth-child(even) {
