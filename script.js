@@ -20,6 +20,7 @@ function createRain() {
         rainDrop.className = 'rain';
         rainDrop.style.left = `${Math.random() * window.innerWidth}px`;
         rainDrop.style.animationDuration = `${Math.random() * 0.5 + 0.5}s`;
+        rainDrop.style.animationDelay = `${Math.random() * 1}s`;
         body.appendChild(rainDrop);
     }
 }
