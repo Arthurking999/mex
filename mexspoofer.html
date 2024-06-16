@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEXSPOOFER</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+        #download-status {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="content">
@@ -32,14 +46,22 @@
             downloadButton.addEventListener('click', (event) => {
                 if (!hasDownloaded) {
                     event.preventDefault();
-                    downloadStatus.textContent = 'Checking the file...';
+                    let dots = 0;
+                    downloadStatus.textContent = 'Checking the file';
+                    const dotInterval = setInterval(() => {
+                        dots = (dots + 1) % 4;
+                        downloadStatus.textContent = 'Checking the file' + '.'.repeat(dots);
+                    }, 500);
 
                     setTimeout(() => {
-                        downloadStatus.textContent = 'Checking that you are not a robot...';
-
+                        downloadStatus.textContent = 'Checking your browser...';
                         setTimeout(() => {
-                            localStorage.setItem('hasDownloaded', 'true');
-                            window.location.href = downloadButton.href;
+                            downloadStatus.textContent = 'Checking your IP...';
+                            setTimeout(() => {
+                                clearInterval(dotInterval);
+                                localStorage.setItem('hasDownloaded', 'true');
+                                window.location.href = downloadButton.href;
+                            }, 2000);
                         }, 2000);
                     }, 2000);
                 }
