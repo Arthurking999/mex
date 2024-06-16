@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: url('') no-repeat center center fixed;
+    background: url('https://i.pinimg.com/originals/65/5e/d1/655ed1eac8250b23f1c5b6aab328b24e.gif') no-repeat center center fixed;
     background-size: cover;
-    cursor: url('https://i.pinimg.com/originals/65/5e/d1/655ed1eac8250b23f1c5b6aab328b24e.gif'), auto;
+    cursor: url('https://cdn.discordapp.com/attachments/1233881524550635650/1249192828685258773/file.cur?ex=66704c3b&is=666efabb&hm=61028bb17bde9da6ffddf77a217896a8cea67231229837d2aba93fa310fa4e91&'), auto;
 }
 
 .minecraft-text {
@@ -181,6 +181,7 @@ body {
 .download-box a:hover {
     background: #00cc00;
 }
+
 .hidden {
     display: none;
 }
@@ -228,4 +229,3 @@ body {
         transform: translateY(100vh);
     }
 }
-
