@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content.classList.remove('hidden');
         }, 500);
     });
-});
+
     createRain();
 });
 
