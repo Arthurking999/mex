@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHECKER APP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            justify-content: center;
+        }
+        .image-container {
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out forwards;
+        }
+        .image-container img {
+            width: 500px; /* Increase the size of the image */
+            height: auto;
+        }
+        .download-box {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        #download-status {
+            margin-top: 20px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="image-container">
+            <img src="image.png" alt="CHECKER APP">
+            <div class="download-box">
+                <h2>CHECKER APP</h2>
+                <p>THIS APP FOR CHECK UUID, HWID, DISK, IP, EVERYTHING</p>
+                <a id="download-button" href="https://github.com/mexstudios/mex/raw/main/MexChecker.zip" download>Download</a>
+            </div>
+        </div>
+        <div id="download-status" class="minecraft-text"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadButton = document.getElementById('download-button');
+            const downloadStatus = document.getElementById('download-status');
+            const downloadBox = document.querySelector('.download-box');
+
+            // Trigger the animation for the download box
+            setTimeout(() => {
+                downloadBox.style.opacity = 1;
+                downloadBox.style.animation = 'slideUp 1s ease-out forwards';
+            }, 500);
+
+            let hasDownloaded = localStorage.getItem('hasDownloadedCheckerApp');
+
+            if (hasDownloaded) {
+                downloadStatus.textContent = 'You have already downloaded this file before.';
+            }
+
+            downloadButton.addEventListener('click', (event) => {
+                if (!hasDownloaded) {
+                    event.preventDefault();
+                    let dots = 0;
+                    downloadStatus.textContent = 'Checking the file';
+                    const dotInterval = setInterval(() => {
+                        dots = (dots + 1) % 4;
+                        downloadStatus.textContent = 'Checking the file' + '.'.repeat(dots);
+                    }, 500);
+
+                    setTimeout(() => {
+                        downloadStatus.textContent = 'Checking your browser...';
+                        setTimeout(() => {
+                            downloadStatus.textContent = 'Checking your IP...';
+                            setTimeout(() => {
+                                clearInterval(dotInterval);
+                                localStorage.setItem('hasDownloadedCheckerApp', 'true');
+                                window.location.href = downloadButton.href;
+                            }, 2000);
+                        }, 2000);
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
