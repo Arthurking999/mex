@@ -11,12 +11,47 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            justify-content: center;
         }
         .image-container {
             margin-bottom: 20px;
+            animation: slideIn 1s ease-out forwards;
+        }
+        .image-container img {
+            width: 500px; /* Increase the size of the image */
+            height: auto;
+        }
+        .download-box {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
         }
         #download-status {
             margin-top: 20px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -36,11 +71,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             const downloadButton = document.getElementById('download-button');
             const downloadStatus = document.getElementById('download-status');
+            const downloadBox = document.querySelector('.download-box');
+
+            // Trigger the animation for the download box
+            setTimeout(() => {
+                downloadBox.style.opacity = 1;
+                downloadBox.style.animation = 'slideUp 1s ease-out forwards';
+            }, 500);
 
             let hasDownloaded = localStorage.getItem('hasDownloaded');
 
             if (hasDownloaded) {
-                downloadStatus.textContent = 'You have already downloaded this file.';
+                downloadStatus.textContent = 'You have already downloaded this file before.';
             }
 
             downloadButton.addEventListener('click', (event) => {
