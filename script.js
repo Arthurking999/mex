@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = document.getElementById('content');
 
     welcomeScreen.addEventListener('click', () => {
-        welcomeScreen.style.opacity = '0';
-        content.classList.remove('hidden');
+        welcomeScreen.classList.add('hidden');
         setTimeout(() => {
             welcomeScreen.style.display = 'none';
+            content.classList.remove('hidden');
         }, 500);
     });
-
+});
     createRain();
 });
 
