@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEXSPOOFER</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content">
+        <div class="image-container">
+            <img src="https://cdn.discordapp.com/attachments/1233724811931553823/1251651841897533451/image.png" alt="MEXSPOOFER">
+            <div class="download-box">
+                <h2>MEXSPOOFER</h2>
+                <p>HWID Spoof & Disk Temp Spoof</p>
+                <a id="download-button" href="MexSpoofer.zip" download>Download</a>
+            </div>
+        </div>
+        <div id="download-status" class="minecraft-text"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadButton = document.getElementById('download-button');
+            const downloadStatus = document.getElementById('download-status');
+
+            let hasDownloaded = localStorage.getItem('hasDownloaded');
+
+            if (hasDownloaded) {
+                downloadStatus.textContent = 'You have already downloaded this file.';
+            }
+
+            downloadButton.addEventListener('click', (event) => {
+                if (!hasDownloaded) {
+                    event.preventDefault();
+                    downloadStatus.textContent = 'Checking the file...';
+
+                    setTimeout(() => {
+                        downloadStatus.textContent = 'Checking that you are not a robot...';
+
+                        setTimeout(() => {
+                            localStorage.setItem('hasDownloaded', 'true');
+                            window.location.href = 'MexSpoofer.zip';
+                        }, 2000);
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
