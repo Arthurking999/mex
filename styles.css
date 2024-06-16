@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: url('https://cdn.discordapp.com/attachments/1233881531404124202/1248335008922472531/a_077042408823fa176cbbd962aeb06f49.gif?ex=666f2793&is=666dd613&hm=5ca9b499433d8d89ad10dbcb2f7224bd4bf541acbeab97f239a5cb60afa63ecf&') no-repeat center center fixed;
+    background: url('') no-repeat center center fixed;
     background-size: cover;
-    cursor: url('https://cdn.discordapp.com/attachments/1233881524550635650/1247992452443410523/7354623.cur?ex=666f3a0b&is=666de88b&hm=be4eb15c641a4a1b6beb63e22366bb86097d69bf9794d4175574f43369e40493&'), auto;
+    cursor: url('https://i.pinimg.com/originals/65/5e/d1/655ed1eac8250b23f1c5b6aab328b24e.gif'), auto;
 }
 
 .minecraft-text {
