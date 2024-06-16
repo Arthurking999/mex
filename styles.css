@@ -181,3 +181,51 @@ body {
 .download-box a:hover {
     background: #00cc00;
 }
+.hidden {
+    display: none;
+}
+
+.welcome-screen, .content {
+    text-align: center;
+    margin: 20px;
+}
+
+.minecraft-text {
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.nav-link {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* Rain effect */
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: #00f;
+    bottom: 100%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
